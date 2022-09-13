@@ -13,11 +13,3 @@ and make new friends, the RCSSA IT team developed this platform to pick up these
 
 ## GAS
 Google App Script allows us to interact with the google suite(form, sheet, doc, gmail, etc.) in real time. 
-
-## Contributors (ranked alphabetically)
-Qingxin Yuan
-
-Yankai Wang
-
-Yueqian Li
-
