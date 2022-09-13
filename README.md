@@ -16,6 +16,8 @@ Google App Script allows us to interact with the google suite(form, sheet, doc, 
 
 ## Contributors (ranked alphabetically)
 Qingxin Yuan
+
 Yankai Wang
+
 Yueqian Li
 
