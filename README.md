@@ -26,4 +26,11 @@ Google Form allows us to publish questionnaires and collect information from stu
 Google Sheet serves like our database in this program. All the information we collected is stored in Google Sheet. 
 
 ## How to run
-TODO
+* Copy the two google forms and the google sheet to your own google drive.
+* Create spread sheet link from new student form to the spread sheet.
+* Copy the two GASs to corresponding script editor of the two google forms.
+* Modify the following constants:
+1. formId
+2. studentSSId
+3. studentSheetName
+* Send out your form links, you are good to go.
