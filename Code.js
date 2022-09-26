@@ -18,8 +18,8 @@ const studentEmailColNum = 2;
 const studentNameColNum = 3;
 const studentWechatColNum = 4;
 const studentOtherContactColNum = 5;
-const timeColNum = 6;  //  col number for responses containing student arrival date and time
-const timeColNumConf = 7;
+const timeColNum = 6;
+const timeConfColNum = 7;
 
 function bind(){
     ScriptApp.newTrigger('myOnFormSubmit')
@@ -28,9 +28,21 @@ function bind(){
     .create();
 }
 
+
 function myOnFormSubmit(event) {
   let email = event.response.getRespondentEmail();
-  sendConfirmationEmail(email);
+  let formRespones = event.response.getItemResponses();
+  let studentTimeCol_1 = formRespones[timeColNum].getResponse();
+  let studentTimeCol_2 = formRespones[timeConfColNum].getResponse();
+
+  // If time entered twice is different, send time conflict failure email
+  // Otherwise, send confirmation email
+  if (studentTimeCol_1 != studentTimeCol_2){
+    Logger.log(`sending email - input time conflict: ${email}}`)
+    sendFailureEmailTimeConflict(email);
+  } else {
+    sendConfirmationEmail(email);
+  }
 }
 
 function sendConfirmationEmail(receiver){
@@ -49,22 +61,6 @@ function sendConfirmationEmail(receiver){
     `,
     attachments: [qrCodeBlob]
   });
-}
-
-
-// Check time entered by each student
-function checkTimeConflict(){
-  let studentTimeCol_1 = _getColData(timeColNum, studentSheet);
-  let studentTimeCol_2 = _getColData(timeColNumConf, studentSheet);
-  let studentEmailCol = _getColData(studentEmailColNum, studentSheet)
-
-  for (let i=0; i<studentSheet.getLastRow(); i++){
-  // check whether the time entered twice is same
-    if (studentTimeCol_1[i] != studentTimeCol_2[i]){
-      Logger.log(`sending email - unvalid input time: ${studentEmailCol[i]}`)
-      sendFailureEmailTimeConflict(studentEmailCol[i]);
-    }
-  }
 }
 
 function sendFailureEmailTimeConflict(receiver){
