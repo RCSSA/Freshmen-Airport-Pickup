@@ -5,21 +5,12 @@ const form = FormApp.openById(formId);
 const qrCodeFileId = "1BCo66b-O-ablSuihrBZU1hpc1Kb-woso"
 const qrCodeBlob = DriveApp.getFileById(qrCodeFileId).getAs('image/jpeg')
 
-// spread sheets
-const studentSSId = "1xpvPnj1l3KI9pCac-usnUunV4u5cUXBguhkELRSiUMc";
-const studentSS = SpreadsheetApp.openById(studentSSId);
-
-// sheets
-const studentSheetName = "Form Responses 1";
-const studentSheet = studentSS.getSheetByName(studentSheetName);
-
-// new student sheet related - col number starts from 1
-const studentEmailColNum = 2;
-const studentNameColNum = 3;
-const studentWechatColNum = 4;
-const studentOtherContactColNum = 5;
-const timeColNum = 6;
-const timeConfColNum = 7;
+// new student response (google form) related - col number starts from 0
+const studentNameColNum = 1;
+const studentWechatColNum = 2;
+const studentOtherContactColNum = 3;
+const timeColNum = 4;
+const timeConfColNum = 5;
 
 function bind(){
     ScriptApp.newTrigger('myOnFormSubmit')
