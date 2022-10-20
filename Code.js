@@ -1,5 +1,5 @@
 // global constants
-const formId = "1uyC3qT7OLisQn1_ywd5Ks0WANukBzslt8CP6tYw6J68";
+const formId = "14ehXAOAtRVdbozdNl0rYJ2neJ2fSXFPOI3GGpTRxeSM";
 const form = FormApp.openById(formId);
 // group QRcode
 const qrCodeFileId = "1BCo66b-O-ablSuihrBZU1hpc1Kb-woso"
@@ -9,8 +9,8 @@ const qrCodeBlob = DriveApp.getFileById(qrCodeFileId).getAs('image/jpeg')
 const studentNameColNum = 1;
 const studentWechatColNum = 2;
 const studentOtherContactColNum = 3;
-const timeColNum = 4;
-const timeConfColNum = 5;
+const timeColNum = 3;
+const timeConfColNum = 4;
 
 function bind(){
     ScriptApp.newTrigger('myOnFormSubmit')
